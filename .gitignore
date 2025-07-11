@@ -1,0 +1,13 @@
+.env
+dist
+node_modules
+src/secret/config.json
+src/secret/emoji.json
+dev.db
+prod.db
+prod.db.backup
+dev.db.backup
+dev.db-*
+prod.db-*
+.env.dev
+.env.prod
