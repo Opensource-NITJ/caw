@@ -2,7 +2,7 @@ import Eris from 'eris';
 import { Command } from './types/command';
 import * as fs from 'fs';
 import * as path from 'path';
-import config from './secret/config.json';
+import config from '../secret/config.json';
 
 interface Subcommand {
     parent?: string;

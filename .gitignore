@@ -1,8 +1,8 @@
 .env
 dist
 node_modules
-src/secret/config.json
-src/secret/emoji.json
+secret/config.json
+secret/emoji.json
 dev.db
 prod.db
 prod.db.backup

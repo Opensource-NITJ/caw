@@ -22,7 +22,12 @@ export class DatabaseManager {
             await this.dbPool.query(`
                 CREATE TABLE IF NOT EXISTS users (
                     id TEXT PRIMARY KEY,
-                    pronouns TEXT
+                    pronouns TEXT,
+                    name TEXT,
+                    branch TEXT,
+                    joiningYear INTEGER,
+                    isFresher BOOLEAN DEFAULT TRUE,
+                    email TEXT
                 );
             `);
 
