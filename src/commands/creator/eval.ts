@@ -1,7 +1,7 @@
 import Eris from 'eris';
 import { Command } from '../../types/command';
-import { developerID } from '../../secret/config.json';
-import { right, wrong } from '../../secret/emoji.json';
+import { developerID } from '../../../secret/config.json';
+import { right, wrong } from '../../../secret/emoji.json';
 import util from 'util';
 
 export default (bot: Eris.Client): Command => ({

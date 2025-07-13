@@ -1,6 +1,6 @@
 import Eris from 'eris';
 import { Command } from '../../types/command';
-import { stars } from '../../secret/emoji.json';
+import { stars } from '../../../secret/emoji.json';
 
 export default (bot: Eris.Client): Command => ({
     name: 'selftimeout',

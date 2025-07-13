@@ -1,6 +1,6 @@
 import Eris from 'eris';
 import { Command } from '../types/command';
-import { fingerguns } from '../secret/emoji.json'
+import { fingerguns } from '../../secret/emoji.json'
 export default (bot: Eris.Client): Command => ({
     name: 'yo',
     description: 'Greet users with a friendly message',
