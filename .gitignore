@@ -3,6 +3,8 @@ dist
 node_modules
 secret/config.json
 secret/emoji.json
+secret/roles.json
+secret/channel.json
 dev.db
 prod.db
 prod.db.backup
