@@ -1,7 +1,7 @@
 import Eris from 'eris';
 import { Command } from '../../types/command';
 import emoji from '../../../secret/emoji.json';
-import fs from 'fs';
+// Removed unused import
 import channel from '../../../secret/channel.json';
 import config from '../../../secret/config.json';
 
