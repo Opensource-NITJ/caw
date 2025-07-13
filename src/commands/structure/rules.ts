@@ -62,7 +62,7 @@ export default (bot: Eris.Client): Command => ({
                 }]
             }]
         }, {
-            file: fs.readFileSync('./assets/rulesBanner.png'),
+            file: fs.readFileSync('assets/rulesBanner.png'),
             name: 'banner.png'
         })
     }
