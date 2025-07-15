@@ -11,7 +11,16 @@ export default (bot: Eris.Client): Command => ({
         if (!(interaction instanceof Eris.ComponentInteraction) || 
             interaction.data.component_type !== Eris.Constants.ComponentTypes.BUTTON) return;
 
-        const user = await databaseManager.getUser(interaction.member?.id || interaction.user?.id || "unknown");
+        if (!interaction.member?.id && !interaction.user?.id) {
+            await interaction.createMessage({
+                content: `❌ Unable to verify your identity. Please ensure you are logged in and try again.`,
+                flags: Eris.Constants.MessageFlags.EPHEMERAL
+            });
+            return;
+        }
+
+        const userId = interaction.member?.id || interaction.user?.id!;
+        const user = await databaseManager.getUser(userId);
         if (user) {
             await interaction.createMessage({
                 content: `❌ You are already registered with the email **${user.email}**.`,
