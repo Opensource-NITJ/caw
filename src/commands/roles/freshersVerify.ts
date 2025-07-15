@@ -1,5 +1,6 @@
 import Eris from 'eris';
 import { Command } from '../../types/command';
+import { databaseManager } from '../../lib/database';
 
 export default (bot: Eris.Client): Command => ({
     name: 'rolemenu_freshers_verify',
@@ -9,6 +10,24 @@ export default (bot: Eris.Client): Command => ({
     async execute(interaction: Eris.Interaction): Promise<void> {
         if (!(interaction instanceof Eris.ComponentInteraction) || 
             interaction.data.component_type !== Eris.Constants.ComponentTypes.BUTTON) return;
+
+        if (!interaction.member?.id && !interaction.user?.id) {
+            await interaction.createMessage({
+                content: `❌ Unable to verify your identity. Please ensure you are logged in and try again.`,
+                flags: Eris.Constants.MessageFlags.EPHEMERAL
+            });
+            return;
+        }
+
+        const userId = interaction.member?.id || interaction.user?.id!;
+        const user = await databaseManager.getUser(userId);
+        if (user) {
+            await interaction.createMessage({
+                content: `❌ You are already registered with the email **${user.email}**.`,
+                flags: Eris.Constants.MessageFlags.EPHEMERAL
+            });
+            return;
+        }
 
 
         try {

@@ -8,7 +8,7 @@ export default (bot: Eris.Client): Command => ({
     description: 'Displays the role menu.',
     type: 'onMessage',
     async execute(msg: Eris.Message): Promise<void> {
-        bot.createMessage(msg.channel.id, {
+        await bot.createMessage(msg.channel.id, {
             embeds: [{
                 title: "Obtain your roles:",
                 description: [
