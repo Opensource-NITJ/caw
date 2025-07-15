@@ -1,4 +1,5 @@
 import { Pool } from 'pg';
+import * as userMethods from './userMethods';
 
 export class DatabaseManager {
     private dbPool: Pool;
@@ -39,6 +40,14 @@ export class DatabaseManager {
 
     get client() {
         return this.dbPool;
+    }
+
+    registerUser(userId: string, name: string, branch: string, joiningYear: string, email: string): Promise<void> {
+        return userMethods.registerUser(this.dbPool, userId, name, branch, joiningYear, email);
+    }
+
+    getUser(userId: string): Promise<any | null> {
+        return userMethods.getUser(this.dbPool, userId);
     }
 
 }
