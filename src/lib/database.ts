@@ -42,7 +42,7 @@ export class DatabaseManager {
         return this.dbPool;
     }
 
-    registerUser(userId: string, name: string, branch: string, joiningYear: string, email: string): Promise<void> {
+    async registerUser(userId: string, name: string, branch: string, joiningYear: string, email: string): Promise<void> {
         return userMethods.registerUser(this.dbPool, userId, name, branch, joiningYear, email);
     }
 
