@@ -9,7 +9,17 @@ export async function registerUser(db: Pool, userId: string, name: string, branc
     );
 }
 
-export async function getUser(db: Pool, userId: string): Promise<any | null> {
+export interface User {
+    id: string;
+    pronouns: string | null;
+    name: string;
+    branch: string;
+    joiningYear: string;
+    isFresher: boolean;
+    email: string;
+}
+
+export async function getUser(db: Pool, userId: string): Promise<User | null> {
     const result = await db.query(
         `SELECT * FROM users WHERE id = $1`,
         [userId]
