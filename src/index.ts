@@ -2,6 +2,7 @@ require('dotenv').config({ path: process.env.NODE_ENV === 'production' ? '.env.p
 import Eris from 'eris';
 import { CommandHandler } from './commandHandler';
 import { databaseManager } from './lib/database';
+import { NITJAdmissionChecker } from './lib/nitjAdmissionChecker';
 
 const bot = new Eris.Client(`Bot ${process.env.TOKEN}`, {
     intents: ["guilds", "guildMembers", "guildPresences", "guildMessages", "messageContent"]
@@ -23,3 +24,5 @@ bot.on("error", (error: any) => {
 });
 
 bot.connect();
+
+NITJAdmissionChecker(databaseManager, bot);
